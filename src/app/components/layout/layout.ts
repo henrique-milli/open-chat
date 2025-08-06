@@ -7,8 +7,6 @@ import {MatButton, MatFabButton, MatIconButton} from '@angular/material/button';
   imports: [
     Chat,
     MatIconButton,
-    MatFabButton,
-    MatButton
   ],
   templateUrl: './layout.html',
   styleUrl: './layout.css'
