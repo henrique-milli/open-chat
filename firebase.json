@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "dist/openchat/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
