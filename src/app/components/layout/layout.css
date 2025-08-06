@@ -1,0 +1,45 @@
+/* Minimal layout overrides, let Material handle most styling */
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.logo {
+  width: 150px;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: var(--mat-sys-surface-container);
+}
+
+.app-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  color: var(--mat-sys-on-surface-variant);
+  background: var(--mat-sys-surface-container);
+}
+
+.footer-logo {
+  width: 75px;
+}
+
+.explainer {
+  text-align: center;
+  margin: 2rem 0 1rem 0;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+

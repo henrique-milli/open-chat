@@ -1,0 +1,53 @@
+<div class="chat-root">
+  <div class="chat-main">
+    <div class="setup-row">
+      <mat-form-field appearance="outline" class="model-select">
+        <mat-label>Model</mat-label>
+        <mat-select (selectionChange)="onModelChange($event)" [value]="selectedModel">
+          @for (model of availableModels; track model) {
+            <mat-option [value]="model">{{ model }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <button (click)="initializeWebLLMEngine()" [disabled]="isLoading" color="primary" mat-stroked-button>
+        @if (!isLoading) {
+          Download
+        } @else {
+          Loading...
+        }
+      </button>
+      @if (downloadStatus && isLoading) {
+        <span class="download-status">{{ downloadStatus }}</span>
+      }
+    </div>
+    <div #chatBox class="messages-list">
+      @for (msg of chatHistory; track msg) {
+        <div class="message-row" [class]="msg.role">
+          <div class="message-bubble">{{ msg.content }}</div>
+        </div>
+      }
+    </div>
+    <form class="input-row" (ngSubmit)="onMessageSend()">
+      <mat-form-field appearance="outline" class="message-input">
+        <input
+          #userInput
+          (keyup.enter)="onMessageSend()"
+          [disabled]="!modelLoaded"
+          id="user-input"
+          matInput
+          placeholder="Type a message..."
+          type="text"
+          autocomplete="off"
+        />
+      </mat-form-field>
+      <button
+        type="submit"
+        [disabled]="!modelLoaded"
+        id="send"
+        mat-flat-button
+      >
+        Send
+      </button>
+    </form>
+  </div>
+</div>
